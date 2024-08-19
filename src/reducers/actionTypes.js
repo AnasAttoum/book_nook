@@ -1,0 +1,20 @@
+// Cart Actions
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const DELETE_FROM_CART = 'DELETE_FROM_CART'
+
+export const ADD_DEADLINE = 'ADD_DEADLINE'
+
+export const RESET_CART = 'RESET_CART'
+
+
+// Personal Data Actions
+export const ADD_PERSONAL_INFORMATION = 'ADD_PERSONAL_INFORMATION'
+export const ADD_LIBRARY_CARD_INFORMATION = 'ADD_LIBRARY_CARD_INFORMATION'
+
+
+
+// Order History
+export const ADD_ORDER_TO_HISTORY = 'ADD_ORDER_TO_HISTORY'
+
+export const RETURN_BOOKS = 'RETURN_BOOKS'
+
