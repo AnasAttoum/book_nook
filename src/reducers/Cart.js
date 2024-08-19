@@ -8,15 +8,30 @@ const cartDetails = {
 export default function Cart(state = cartDetails, action) {
     switch (action.type) {
         case ADD_TO_CART:
-            if (state.cart.find(el => { return el === action.payload }) === undefined)
-                return { ...state, cart: [...state.cart, action.payload] }
+            if (state.cart.filter(el => { return el.index === action.payload.index }).length !== 0)
+                return {
+                    ...state, cart: state.cart.map((book) => {
+                        if (book.index === action.payload.index)
+                            if (book.quantity === 1 && action.payload.quantity === -1)
+                                return { ...book, quantity: book.quantity }
+                            else
+                                return { ...book, quantity: book.quantity + action.payload.quantity }
+                        else
+                            return book
+                    })
+                }
             else
-                return state
+                return {
+                    ...state, cart: [...state.cart, {
+                        index: action.payload.index,
+                        quantity: action.payload.quantity
+                    }]
+                }
 
         case DELETE_FROM_CART:
             return {
                 ...state, cart: state.cart.filter(book => {
-                    return book !== action.payload
+                    return book.index !== action.payload
                 })
             }
 

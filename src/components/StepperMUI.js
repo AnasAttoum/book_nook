@@ -15,9 +15,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addLibraryCardInformation, addOrderToHistory, addPersonalInformation, resetCart } from '../reducers/actions';
 import InputDisableMUI from './InputDisableMUI';
 import { books } from '../CONSTANTS/data';
-import styles from '../styles/Cart.module.css'
+import styles from '../styles/Checkout.module.css'
 
-const steps = ['Personal Information', 'Library Card Information', 'Summary and Confirmation'];
+const steps = ['Personal', 'Card', 'Summary'];
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -185,9 +185,6 @@ export default function StepperMUI() {
       userName: '',
       cardNumber: ''
     }))
-    setTimeout(() => {
-      dispatch(resetCart())
-    }, 5000)
 
     dispatch(addOrderToHistory(
       {
@@ -196,6 +193,8 @@ export default function StepperMUI() {
       },
       [...cart],
       deadline))
+
+    dispatch(resetCart())
   }
 
   return (
@@ -220,7 +219,7 @@ export default function StepperMUI() {
               }
               return (
                 <Step key={label} {...stepProps}>
-                  <StepLabel {...labelProps}>{label}</StepLabel>
+                  <StepLabel {...labelProps} ><span className={styles.label} style={{fontSize:'1.5vw'}}>{label}</span></StepLabel>
                 </Step>
               );
             })}
@@ -271,17 +270,19 @@ export default function StepperMUI() {
                         <div className={`flex justify-center items-center gap-5 text-lg font-bold my-10 ${styles.headerTable}`}>
                           <div style={{ width: '10%' }}>Picture</div>
                           <div style={{ width: '20%' }}>Title</div>
-                          <div style={{ width: '15%' }}>Pages</div>
+                          <div style={{ width: '10%' }}>Quantity</div>
+                          <div style={{ width: '10%' }}>Pages</div>
                         </div>
 
                         <div className={`flex flex-col gap-5 ${styles.bodyTable}`}>
                           {cart.map((book, index) => {
                             return <div key={index} className='flex justify-center items-center gap-5'>
                               <div style={{ width: '10%' }}>
-                                <img src={books[book].image} alt={books[book].name} style={{ height: '100px', borderRadius: '10px' }} />
+                                <img src={books[book.index].image} alt={books[book.index].name} style={{ height: '100px', borderRadius: '10px' }} />
                               </div>
-                              <div style={{ width: '20%' }}>{books[book].name}</div>
-                              <div style={{ width: '15%' }}>{books[book].pages}</div>
+                              <div style={{ width: '20%' }}>{books[book.index].name}</div>
+                              <div style={{ width: '10%' }}>{book.quantity}</div>
+                              <div style={{ width: '10%' }}>{books[book.index].pages}</div>
                             </div>
                           })}
                         </div>

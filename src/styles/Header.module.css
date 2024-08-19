@@ -1,4 +1,33 @@
 .header{
     background-color: var(--primary);
     color: white;
+    z-index: 11;
+}
+
+.hamb{
+    display: none;
+}
+
+.listResponsive{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    padding-top: 72px;
+    height: 100vh;
+    left: 0;
+    background-color: var(--secondary);
+    z-index: 10;
+}
+.listResponsive>.link{
+    padding: 5vh;
+}
+
+@media (width<500px) {
+    .list{
+        display: none;
+    }
+    .hamb{
+        display: block;
+    }
+
 }

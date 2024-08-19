@@ -2,14 +2,17 @@ import { ADD_DEADLINE, ADD_LIBRARY_CARD_INFORMATION, ADD_ORDER_TO_HISTORY, ADD_P
 
 
 // Cart Actions
-export const addToCart = (id) => ({
+export const addToCart = (index, quantity) => ({
     type: ADD_TO_CART,
-    payload: id,
+    payload: {
+        index: index,
+        quantity: quantity
+    },
 });
 
-export const deleteFromCart = (id) => ({
+export const deleteFromCart = (index) => ({
     type: DELETE_FROM_CART,
-    payload: id,
+    payload: index,
 });
 
 
@@ -39,7 +42,7 @@ export const addLibraryCardInformation = (data) => ({
 export const addOrderToHistory = (libraryCardInformation, cart, deadline) => ({
     type: ADD_ORDER_TO_HISTORY,
     payload: {
-        libraryCardInformation:libraryCardInformation,
+        libraryCardInformation: libraryCardInformation,
         cart: cart,
         date: new Date(),
         deadline: deadline

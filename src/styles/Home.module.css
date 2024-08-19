@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Grey+Qo&family=Kurale&display=swap');
+
+
+.title {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
+    color: var(--primary);
+}
+
+.clip1, .clip2{
+    width: 40px;
+    margin: 10px;
+    border: 4px solid #67939c;
+    border-radius: 20px;
+    transform: rotate(10deg);
+}
+.clip2{
+    border: 4px solid var(--primary);
+    transform: rotate(-10deg) translateX(-3px);
+}
+
+@media (width<800px) {
+    .introContainer{
+        flex-direction: column;
+        margin-top: 50px;
+    }
+    iframe{
+        width: 90vw !important;
+    }
+}

@@ -12,7 +12,8 @@ export default function Checkout() {
     useEffect(() => {
         if (cart.length === 0 || deadline === '')
             navigate('/library')
-    }, [cart.length, deadline, navigate])
+        // eslint-disable-next-line
+    }, [])
 
 
     return (

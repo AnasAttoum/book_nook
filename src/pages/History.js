@@ -7,16 +7,15 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import InputMUI from "../components/InputMUI";
+import TableMUI from "../components/TableMUI";
 
-const steps = ['Log in To your library account', 'History'];
+const steps = ['Log In', 'History'];
 
 
 export default function History() {
 
     const AllOrderHistory = useSelector(state => state.OrderHistory)
-    console.log("🚀 ~ History ~ AllOrderHistory:", AllOrderHistory)
     const [orderHistory, setOrderHistory] = React.useState([])
-    console.log("🚀 ~ History ~ orderHistory:", orderHistory)
 
     const step1Username = React.useRef(null)
     const step1CardNumber = React.useRef(null)
@@ -123,8 +122,9 @@ export default function History() {
                                             <div className='mt-5 text-center text-2xl' style={{ color: 'var(--primary)' }}>No Orders Here Yet</div>
                                         </div>
                                         :
-                                        <>
-                                        </>
+                                        <div className='flex flex-col justify-center items-center gap-3 my-5' style={{ minHeight: '50vh' }}>
+                                            <TableMUI orderHistory={orderHistory}/>
+                                        </div>
                                     }
                                 </>
                             }</Typography>
