@@ -11,7 +11,8 @@ export default function BooksCard({ book, index }) {
     const [loading, setLoading] = useState(false)
     const { name, image, author, description } = book
 
-    const add = () => {
+    const add = (e) => {
+        e.preventDefault()
         setLoading(true)
         dispatch(addToCart(index, 1))
         setTimeout(() => {

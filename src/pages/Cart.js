@@ -46,7 +46,6 @@ export default function Cart() {
     };
 
     const cart = useSelector(state => state.Cart.cart)
-    console.log("🚀 ~ Cart ~ cart:", cart)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

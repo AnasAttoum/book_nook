@@ -22,7 +22,7 @@ export default function Header() {
                     </div>
                 </Link>
 
-                <svg style={{zIndex:'11'}} className={styles.hamb} onClick={() => setOpen(prev => !prev)} xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 32 32"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h22M5 16h22M5 24h22" /></svg>
+                <svg style={{zIndex:'11'}} className={styles.hamb} onClick={() => setOpen(prev => !prev)} xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 32 32"><path fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h22M5 16h22M5 24h22" /></svg>
                 <div className={`flex items-center gap-5 ${styles.list}`}>
                     {links.map((link, index) => {
                         const isActive = pathname.slice(1).includes(link.name.toLowerCase()) || (pathname.slice(1) === '' && link.name === 'Home')
